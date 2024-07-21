@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import com.tms.mono.enums.Status;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,7 +31,6 @@ public class AssignedConsighnmentsDetails {
 	private Long id;
 	
 	@OneToOne(mappedBy ="consighnmentsDetails", cascade = CascadeType.ALL)
-	
 	private Consighnment consighnment;
 	
 	@OneToOne(mappedBy = "assighnment")
@@ -43,7 +44,7 @@ public class AssignedConsighnmentsDetails {
 	@Column(name = "remaining_fair")
 	private Double remainingFair;
 	@Column(name = "status")
-	private String status;
+	private Status status;
 	
 	@CreatedDate
 	@Column(name = "start_date")
