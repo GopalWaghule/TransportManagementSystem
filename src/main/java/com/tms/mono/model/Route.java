@@ -19,6 +19,10 @@ public class Route {
     private Long id;
     @Column(name = "route_name")
     private String routeName;
+    @Column(name = "startLocation")
+    private String startLocation;
+    @Column(name = "destination")
+    private String destination;
     
     @OneToMany(mappedBy = "route")
     private List<Consighnment> consighnments; // One route can have many consignments

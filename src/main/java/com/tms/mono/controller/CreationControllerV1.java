@@ -1,5 +1,7 @@
 package com.tms.mono.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +24,14 @@ import io.micrometer.core.instrument.config.validate.ValidationException;
 @RequestMapping("/add/v1")
 public class CreationControllerV1 {
 
+	private static final Logger LOGGER = LogManager.getLogger(CreationControllerV1.class);
+
 	@Autowired
 	private CreateService createService;
 
 	@PostMapping("/v")
 	public ResponseEntity<Vehical> addVehical(@RequestBody Vehical vehical) {
+		LOGGER.info("In <CreationControllerV1>");
 		try {
 			createService.addVehical(vehical);
 			return ResponseEntity.ok(vehical);
@@ -42,6 +47,7 @@ public class CreationControllerV1 {
 	public ResponseEntity<Consighnment> addConsighnment(@RequestBody Consighnment consighnment) {
 
 		try {
+			LOGGER.info("In <CreationControllerV1>");
 			createService.addConsighnment(consighnment);
 			return ResponseEntity.ok().build();
 		} catch (ValidationException e) {
@@ -55,6 +61,7 @@ public class CreationControllerV1 {
 	@PostMapping("/vo")
 	private ResponseEntity<VehicalOwner> addVehicalOwner(@RequestBody VehicalOwner vehicalOwner) {
 		try {
+			LOGGER.info("In <CreationControllerV1>");
 			createService.addVehicalOwner(vehicalOwner);
 			return ResponseEntity.ok().build();
 		} catch (ValidationException e) {
@@ -67,6 +74,7 @@ public class CreationControllerV1 {
 	@PostMapping("/d")
 	private ResponseEntity<Driver> addDriver(@RequestBody Driver driver) {
 		try {
+			LOGGER.info("In <CreationControllerV1>");
 			createService.addDriver(driver);
 			return ResponseEntity.ok().build();
 		} catch (ValidationException e) {
@@ -79,6 +87,7 @@ public class CreationControllerV1 {
 	@PostMapping("/r")
 	private ResponseEntity<Route> addRoute(@RequestBody Route route) {
 		try {
+			LOGGER.info("In <CreationControllerV1>");
 			createService.addRoute(route);
 			return ResponseEntity.ok().build();
 		} catch (ValidationException e) {
@@ -92,6 +101,7 @@ public class CreationControllerV1 {
 	private ResponseEntity<ConsighnmentOwner> addConsighnmentOwner(@RequestBody ConsighnmentOwner consighnmentOwner) {
 
 		try {
+			LOGGER.info("In <CreationControllerV1>");
 			createService.addConsighnmentOwner(consighnmentOwner);
 			return ResponseEntity.ok().build();
 		} catch (ValidationException e) {

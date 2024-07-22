@@ -1,5 +1,7 @@
 package com.tms.mono.service.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,64 +23,74 @@ import com.tms.mono.repository.VehicalOwnerDao;
 import com.tms.mono.service.CreateService;
 
 @Service
-public class CreateServiceImpl implements CreateService{
-	
+public class CreateServiceImpl implements CreateService {
+
+	private static final Logger LOGGER = LogManager.getLogger(CreateServiceImpl.class);
+
 	@Autowired
 	private ConsighnmentDao consighnmentDao;
-	
+
 	@Autowired
 	private DriverDao driverDao;
-	
+
 	@Autowired
 	private RouteDao routeDao;
-	
+
 	@Autowired
 	private VehicalDao vehicalDao;
-	
+
 	@Autowired
 	private VehicalOwnerDao vehicalOwnerDao;
-	
+
 	@Autowired
 	private ConsighnmentOwnerDao consighnmentOwnerDao;
-	
+
 	@Autowired
 	private AssighnedConsighnmentDetailsDao assighnedConsighnmentDetailsDao;
 
 	@Override
 	public void addConsighnment(Consighnment consighnment) {
+
+		LOGGER.info("Adding new Consighnment to the database : " + consighnment);
 		consighnment.setStatus(Status.Non_Active);
 		consighnmentDao.save(consighnment);
-		
+
 	}
 
 	@Override
 	public void addDriver(Driver driver) {
-		driverDao.save(driver);	
+		LOGGER.info("Adding new Driver to the database : " + driver);
+		driverDao.save(driver);
 	}
 
 	@Override
 	public void addRoute(Route route) {
+		LOGGER.info("Adding new Route to the database : " + route);
 		routeDao.save(route);
 	}
 
 	@Override
 	public void addVehical(Vehical vehical) {
-		vehicalDao.save(vehical);	
+		LOGGER.info("Adding new Vehical to the database : " + vehical);
+		vehicalDao.save(vehical);
 	}
 
 	@Override
 	public void addVehicalOwner(VehicalOwner owner) {
-		vehicalOwnerDao.save(owner);		
+		LOGGER.info("Adding new VehicalOwner to the database : " + owner);
+		vehicalOwnerDao.save(owner);
 	}
 
 	@Override
 	public void addConsighnmentOwner(ConsighnmentOwner consighnmentOwner) {
-		consighnmentOwnerDao.save(consighnmentOwner);		
+		LOGGER.info("Adding new ConsighnmentOwner to the database : " + consighnmentOwner);
+		consighnmentOwnerDao.save(consighnmentOwner);
 	}
 
 	@Override
 	public void addAssignedConsighnmentDetails(AssignedConsighnmentsDetails details) {
-		assighnedConsighnmentDetailsDao.save(details);		
+		LOGGER.info("Adding new AssignedConsighnmentsDetails to the database : " + details);
+		assighnedConsighnmentDetailsDao.save(details);
 	}
 
 }

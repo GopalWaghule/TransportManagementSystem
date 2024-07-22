@@ -9,5 +9,7 @@ import com.tms.mono.model.Route;
 
 @Repository
 public interface RouteDao extends JpaRepository<Route, Serializable>{
+	
+	Route findByRouteName(String name);
 
 }
