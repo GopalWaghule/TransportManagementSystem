@@ -2,6 +2,8 @@ package com.tms.mono.model;
 
 import java.util.List;
 
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,10 +20,13 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "route_name")
+    @NotBlank
     private String routeName;
     @Column(name = "startLocation")
+    @NotBlank
     private String startLocation;
     @Column(name = "destination")
+    @NotBlank
     private String destination;
     
     @OneToMany(mappedBy = "route")

@@ -1,5 +1,7 @@
 package com.tms.mono.model;
 
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
+
 import com.tms.mono.enums.Status;
 
 import jakarta.annotation.Nonnull;
@@ -41,10 +43,12 @@ public class Consighnment {
 	private String type;
 	@Nonnull
 	@Column(name = "destination")
+	@NotBlank
 	private String destination;
 	
 	@Nonnull
 	@Column(name = "load_weight")
+	@NotBlank
 	private Double loadWeight;
 	@Nonnull
 	@Column(name = "fare")

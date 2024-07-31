@@ -1,5 +1,9 @@
 
 package com.tms.mono.model;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,11 +29,15 @@ public class ConsighnmentOwner {
     
     @OneToOne
     @PrimaryKeyJoinColumn(name = "consighnment")
+    @JsonIgnore
     private Consighnment consighnment;
+    @NotBlank
     @Column(name = "name")
     private String name;
+    @NotBlank
     @Column(name = "company")
     private String company;
+    @NotBlank
     @Column(name = "mobile")
     private String mobile;
     @Column(name = "mobile1")

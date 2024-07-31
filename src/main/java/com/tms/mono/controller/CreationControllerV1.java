@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.tms.mono.model.Consighnment;
 import com.tms.mono.model.ConsighnmentOwner;
@@ -20,7 +20,7 @@ import com.tms.mono.service.CreateService;
 
 import io.micrometer.core.instrument.config.validate.ValidationException;
 
-@Controller
+@RestController
 @RequestMapping("/add/v1")
 public class CreationControllerV1 {
 

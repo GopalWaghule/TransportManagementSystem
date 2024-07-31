@@ -3,10 +3,10 @@ package com.tms.mono.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.tms.mono.model.Consighnment;
 import com.tms.mono.model.ConsighnmentOwner;
@@ -18,9 +18,8 @@ import com.tms.mono.service.CreateService;
 
 import io.micrometer.core.instrument.config.validate.ValidationException;
 
-@Controller
+@RestController
 @RequestMapping("/add/v2")
-
 public class CreateControllerV2 {
 
 	@Autowired
@@ -31,7 +30,8 @@ public class CreateControllerV2 {
 			@RequestBody(required = false) VehicalOwner vehicalOwner,
 			@RequestBody(required = false) Consighnment consighnment,
 			@RequestBody(required = false) ConsighnmentOwner consighnmentOwner,
-			@RequestBody(required = false) Route route, @RequestBody(required = false) Driver driver) {
+			@RequestBody(required = false) Route route, 
+			@RequestBody(required = false) Driver driver) {
 		try {
 
 			if (vehical != null) {
