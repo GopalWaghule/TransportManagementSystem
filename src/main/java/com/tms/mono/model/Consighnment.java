@@ -41,6 +41,12 @@ public class Consighnment {
 	@Nonnull
 	@Column(name = "type")
 	private String type;
+	
+	@Nonnull
+	@Column(name = "startingPlace")
+	@NotBlank
+	private String startingPlace;
+	
 	@Nonnull
 	@Column(name = "destination")
 	@NotBlank
