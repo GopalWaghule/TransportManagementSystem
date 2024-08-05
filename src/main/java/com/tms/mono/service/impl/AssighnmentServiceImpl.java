@@ -2,7 +2,6 @@ package com.tms.mono.service.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tms.mono.enums.Status;
@@ -20,17 +19,23 @@ import com.tms.mono.service.AssighnmentService;
 public class AssighnmentServiceImpl implements AssighnmentService {
 
 	private static final Logger LOGGER = LogManager.getLogger(AssighnmentServiceImpl.class);
-	@Autowired
+
 	private AssighnedConsighnmentDetailsDao assighnedConsighnmentDetailsDao;
 
-	@Autowired
 	private ConsighnmentDao consighnmentDao;
 
-	@Autowired
 	private RouteDao routeDao;
 
-	@Autowired
 	private VehicalDao vehicalDao;
+
+	public AssighnmentServiceImpl(AssighnedConsighnmentDetailsDao assighnedConsighnmentDetailsDao,
+			ConsighnmentDao consighnmentDao, RouteDao routeDao, VehicalDao vehicalDao) {
+		super();
+		this.assighnedConsighnmentDetailsDao = assighnedConsighnmentDetailsDao;
+		this.consighnmentDao = consighnmentDao;
+		this.routeDao = routeDao;
+		this.vehicalDao = vehicalDao;
+	}
 
 	@Override
 	public void assighnConsighnment(Long consigId, Long vehicalId) {

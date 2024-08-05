@@ -1,33 +1,46 @@
 package com.tms.mono.model;
 
 import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Vehical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "maker")
+    private String maker;
+    @Column(name = "model")
+    private String model;
     @Column(name = "number")
     private String number;
-    @Column(name = "total_capacity")
-    private String totalCapacity;
-    @Column(name = "remaining_capacity")
+    @Column(name = "totalCapacity")
+    private Double totalCapacity;
+    @Column(name = "remainingCapacity")
     private Double remainingCapacity;
     
     @ManyToOne
-    @PrimaryKeyJoinColumn(name = "owner")
+    @JoinColumn(name = "owner")
     private VehicalOwner owner;
 
     @OneToMany(mappedBy = "vehicals", cascade = CascadeType.ALL)
@@ -35,10 +48,10 @@ public class Vehical {
     private List<Driver> drivers;
 
     @ManyToOne
-    @PrimaryKeyJoinColumn(name = "route")
+    @JoinColumn(name = "route")
     private Route route;
     
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "assighnment")
+    @JoinColumn(name = "assighnment")
     private AssignedConsighnmentsDetails assighnment;
 }

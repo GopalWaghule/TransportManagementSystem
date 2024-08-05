@@ -2,7 +2,6 @@ package com.tms.mono.service.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tms.mono.enums.Status;
@@ -27,26 +26,33 @@ public class CreateServiceImpl implements CreateService {
 
 	private static final Logger LOGGER = LogManager.getLogger(CreateServiceImpl.class);
 
-	@Autowired
 	private ConsighnmentDao consighnmentDao;
 
-	@Autowired
 	private DriverDao driverDao;
 
-	@Autowired
 	private RouteDao routeDao;
 
-	@Autowired
 	private VehicalDao vehicalDao;
 
-	@Autowired
 	private VehicalOwnerDao vehicalOwnerDao;
 
-	@Autowired
 	private ConsighnmentOwnerDao consighnmentOwnerDao;
 
-	@Autowired
 	private AssighnedConsighnmentDetailsDao assighnedConsighnmentDetailsDao;
+
+
+	private CreateServiceImpl(ConsighnmentDao consighnmentDao, DriverDao driverDao, RouteDao routeDao,
+			VehicalDao vehicalDao, VehicalOwnerDao vehicalOwnerDao, ConsighnmentOwnerDao consighnmentOwnerDao,
+			AssighnedConsighnmentDetailsDao assighnedConsighnmentDetailsDao) {
+		super();
+		this.consighnmentDao = consighnmentDao;
+		this.driverDao = driverDao;
+		this.routeDao = routeDao;
+		this.vehicalDao = vehicalDao;
+		this.vehicalOwnerDao = vehicalOwnerDao;
+		this.consighnmentOwnerDao = consighnmentOwnerDao;
+		this.assighnedConsighnmentDetailsDao = assighnedConsighnmentDetailsDao;
+	}
 
 	@Override
 	public void addConsighnment(Consighnment consighnment) {
@@ -71,8 +77,12 @@ public class CreateServiceImpl implements CreateService {
 
 	@Override
 	public void addVehical(Vehical vehical) {
+		LOGGER.info("Adding new Vehical Owner to the database : " + vehical.getOwner().toString());
+		vehicalOwnerDao.save(vehical.getOwner());
+		LOGGER.info("Vehical Owner Added");
 		LOGGER.info("Adding new Vehical to the database : " + vehical);
 		vehicalDao.save(vehical);
+		LOGGER.info("Vehical Added : " + vehical.toString());
 	}
 
 	@Override

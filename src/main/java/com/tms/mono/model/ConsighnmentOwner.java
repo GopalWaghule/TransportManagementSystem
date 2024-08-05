@@ -9,8 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +28,7 @@ public class ConsighnmentOwner {
     private Long id;
     
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "consighnment")
+    @JoinColumn(name = "consighnment")
     @JsonIgnore
     private Consighnment consighnment;
     @NotBlank

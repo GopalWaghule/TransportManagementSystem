@@ -1,181 +1,89 @@
-2024-08-01 20:38:01.358 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-01 20:38:01.360 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-08-01 20:38:05.909 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-01 20:38:08.750 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2024-08-01 20:38:10.118 [RMI TCP Connection(9)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2024-08-01 20:38:10.121 [RMI TCP Connection(9)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2024-08-01 20:41:28.332 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-01 20:41:28.333 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-08-01 20:41:29.170 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-01 20:41:29.768 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2024-08-01 20:42:34.875 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-01 20:42:34.875 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-08-01 20:42:35.607 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-01 20:42:36.310 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2024-08-01 20:45:07.834 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-01 20:45:07.834 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-08-01 20:45:08.361 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-01 20:45:21.300 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-01 20:45:21.300 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-08-01 20:45:21.819 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-01 20:46:00.778 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+2024-08-05 11:27:23.243 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-05 11:27:23.247 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-08-05 11:27:25.244 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-05 11:27:58.299 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical
+        (assighnment, maker, model, number, owner, remaining_capacity, route, total_capacity) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-08-05 11:30:05.700 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-05 11:30:05.700 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-08-05 11:30:06.086 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-05 11:30:13.875 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical
+        (assighnment, maker, model, number, owner, remaining_capacity, route, total_capacity) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-08-05 11:31:12.727 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-05 11:31:12.728 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-08-05 11:31:15.013 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-05 11:31:58.788 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical
+        (assighnment, maker, model, number, owner, remaining_capacity, route, total_capacity) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-08-05 11:37:12.405 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-05 11:37:12.406 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-08-05 11:37:14.310 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-05 11:37:29.005 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical
+        (assighnment, maker, model, number, owner, remaining_capacity, route, total_capacity) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-08-05 11:37:46.492 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-05 11:37:46.492 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-08-05 11:37:46.906 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-05 11:38:01.783 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical
+        (assighnment, maker, model, number, owner, remaining_capacity, route, total_capacity) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-08-05 11:39:01.804 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-05 11:39:01.804 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-08-05 11:39:02.195 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-05 11:39:11.097 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical
+        (assighnment, maker, model, number, owner, remaining_capacity, route, total_capacity) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-08-05 11:42:56.604 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-05 11:42:56.604 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-08-05 11:42:56.978 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-05 11:43:17.593 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
     select
-        c1_0.id,
-        c1_0.consighnments_details_id,
-        c1_0.destination,
-        c1_0.fare,
-        c1_0.load_weight,
-        c1_0.route_id,
-        c1_0.starting_place,
-        c1_0.status,
-        c1_0.type 
+        next_val as id_val 
     from
-        consighnment c1_0
-2024-08-01 20:46:00.796 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
-    select
-        co1_0.id,
-        co1_0.company,
-        c1_0.id,
-        cd1_0.id,
-        cd1_0.advance,
-        cd1_0.remaining_fair,
-        cd1_0.start_date,
-        cd1_0.status,
-        cd1_0.total_fair,
-        c1_0.destination,
-        c1_0.fare,
-        c1_0.load_weight,
-        r1_0.id,
-        r1_0.destination,
-        r1_0.route_name,
-        r1_0.start_location,
-        c1_0.starting_place,
-        c1_0.status,
-        c1_0.type,
-        co1_0.mobile,
-        co1_0.mobile1,
-        co1_0.name 
-    from
-        consighnment_owner co1_0 
-    left join
-        consighnment c1_0 
-            on c1_0.id=co1_0.id 
-    left join
-        assigned_consighnments_details cd1_0 
-            on cd1_0.id=c1_0.consighnments_details_id 
-    left join
-        route r1_0 
-            on r1_0.id=c1_0.route_id 
+        vehical_owner_seq for update
+2024-08-05 11:43:17.595 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    update
+        vehical_owner_seq 
+    set
+        next_val= ? 
     where
-        co1_0.id=?
-2024-08-01 20:46:00.810 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
-    select
-        co1_0.id,
-        co1_0.company,
-        c1_0.id,
-        cd1_0.id,
-        cd1_0.advance,
-        cd1_0.remaining_fair,
-        cd1_0.start_date,
-        cd1_0.status,
-        cd1_0.total_fair,
-        c1_0.destination,
-        c1_0.fare,
-        c1_0.load_weight,
-        r1_0.id,
-        r1_0.destination,
-        r1_0.route_name,
-        r1_0.start_location,
-        c1_0.starting_place,
-        c1_0.status,
-        c1_0.type,
-        co1_0.mobile,
-        co1_0.mobile1,
-        co1_0.name 
-    from
-        consighnment_owner co1_0 
-    left join
-        consighnment c1_0 
-            on c1_0.id=co1_0.id 
-    left join
-        assigned_consighnments_details cd1_0 
-            on cd1_0.id=c1_0.consighnments_details_id 
-    left join
-        route r1_0 
-            on r1_0.id=c1_0.route_id 
-    where
-        co1_0.id=?
-2024-08-01 20:46:00.814 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
-    select
-        co1_0.id,
-        co1_0.company,
-        c1_0.id,
-        cd1_0.id,
-        cd1_0.advance,
-        cd1_0.remaining_fair,
-        cd1_0.start_date,
-        cd1_0.status,
-        cd1_0.total_fair,
-        c1_0.destination,
-        c1_0.fare,
-        c1_0.load_weight,
-        r1_0.id,
-        r1_0.destination,
-        r1_0.route_name,
-        r1_0.start_location,
-        c1_0.starting_place,
-        c1_0.status,
-        c1_0.type,
-        co1_0.mobile,
-        co1_0.mobile1,
-        co1_0.name 
-    from
-        consighnment_owner co1_0 
-    left join
-        consighnment c1_0 
-            on c1_0.id=co1_0.id 
-    left join
-        assigned_consighnments_details cd1_0 
-            on cd1_0.id=c1_0.consighnments_details_id 
-    left join
-        route r1_0 
-            on r1_0.id=c1_0.route_id 
-    where
-        co1_0.id=?
-2024-08-01 20:46:00.818 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
-    select
-        co1_0.id,
-        co1_0.company,
-        c1_0.id,
-        cd1_0.id,
-        cd1_0.advance,
-        cd1_0.remaining_fair,
-        cd1_0.start_date,
-        cd1_0.status,
-        cd1_0.total_fair,
-        c1_0.destination,
-        c1_0.fare,
-        c1_0.load_weight,
-        r1_0.id,
-        r1_0.destination,
-        r1_0.route_name,
-        r1_0.start_location,
-        c1_0.starting_place,
-        c1_0.status,
-        c1_0.type,
-        co1_0.mobile,
-        co1_0.mobile1,
-        co1_0.name 
-    from
-        consighnment_owner co1_0 
-    left join
-        consighnment c1_0 
-            on c1_0.id=co1_0.id 
-    left join
-        assigned_consighnments_details cd1_0 
-            on cd1_0.id=c1_0.consighnments_details_id 
-    left join
-        route r1_0 
-            on r1_0.id=c1_0.route_id 
-    where
-        co1_0.id=?
+        next_val=?
+2024-08-05 11:43:17.609 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical_owner
+        (mobile, name, id) 
+    values
+        (?, ?, ?)
+2024-08-05 11:43:17.623 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vehical
+        (assighnment, maker, model, number, owner, remaining_capacity, route, total_capacity) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)

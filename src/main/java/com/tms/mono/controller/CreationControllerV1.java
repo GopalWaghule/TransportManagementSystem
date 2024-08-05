@@ -2,7 +2,6 @@ package com.tms.mono.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,8 +25,12 @@ public class CreationControllerV1 {
 
 	private static final Logger LOGGER = LogManager.getLogger(CreationControllerV1.class);
 
-	@Autowired
 	private CreateService createService;
+
+	private CreationControllerV1(CreateService createService) {
+		super();
+		this.createService = createService;
+	}
 
 	@PostMapping("/v")
 	public ResponseEntity<Vehical> addVehical(@RequestBody Vehical vehical) {
@@ -39,6 +42,7 @@ public class CreationControllerV1 {
 			return ResponseEntity.badRequest().build();
 		} catch (Exception e) {
 			// Handle other unexpected exceptions
+			LOGGER.info("INTERNAL_SERVER_ERROR : " + e.getCause().toString());
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}

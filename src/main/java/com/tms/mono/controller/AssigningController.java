@@ -1,6 +1,5 @@
 package com.tms.mono.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,8 +15,12 @@ import io.micrometer.core.instrument.config.validate.ValidationException;
 @RequestMapping("/assign")
 public class AssigningController {
 	
-	@Autowired
 	private AssighnmentService assighnmentService;
+	
+	private AssigningController(AssighnmentService assighnmentService) {
+		super();
+		this.assighnmentService=assighnmentService;	
+	}
 	
 	@PutMapping("/vehical")
 	public ResponseEntity<String> assignVehicalToConsighnment(@RequestParam Long vehicalId, @RequestParam Long cid){	

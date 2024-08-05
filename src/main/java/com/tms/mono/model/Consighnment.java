@@ -13,9 +13,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +36,7 @@ public class Consighnment {
 
 	@Nonnull
 	@OneToOne(mappedBy = "consighnment", cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn(name = "consighnment_owner")
+	@JoinColumn(name = "consighnment_owner")
 	private ConsighnmentOwner consighnmentOwner; // One consignment has one owner
 	@Nonnull
 	@Column(name = "type")
@@ -65,7 +65,7 @@ public class Consighnment {
 	private Status status;
 	
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name = "route")
+	@JoinColumn(name = "route")
 	private Route route;
 
 	@OneToOne

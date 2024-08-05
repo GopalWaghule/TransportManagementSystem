@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tms.mono.enums.Status;
@@ -15,11 +14,15 @@ import com.tms.mono.service.FetchService;
 
 @Service
 public class FetchServiceImpl implements FetchService {
-	
-	private static final Logger LOGGER= LogManager.getLogger(FetchServiceImpl.class);
 
-	@Autowired
+	private static final Logger LOGGER = LogManager.getLogger(FetchServiceImpl.class);
+
 	private ConsighnmentDao consighnmentDao;
+
+	public FetchServiceImpl(ConsighnmentDao consighnmentDao) {
+		super();
+		this.consighnmentDao = consighnmentDao;
+	}
 
 	@Override
 	public List<Consighnment> findAllActiveConsighnment() {

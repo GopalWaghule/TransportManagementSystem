@@ -1,6 +1,5 @@
 package com.tms.mono.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,16 +21,19 @@ import io.micrometer.core.instrument.config.validate.ValidationException;
 @RequestMapping("/add/v2")
 public class CreateControllerV2 {
 
-	@Autowired
 	private CreateService createService;
+
+	private CreateControllerV2(CreateService createService) {
+		super();
+		this.createService = createService;
+	}
 
 	@PostMapping
 	private ResponseEntity<?> add(@RequestBody(required = false) Vehical vehical,
 			@RequestBody(required = false) VehicalOwner vehicalOwner,
 			@RequestBody(required = false) Consighnment consighnment,
 			@RequestBody(required = false) ConsighnmentOwner consighnmentOwner,
-			@RequestBody(required = false) Route route, 
-			@RequestBody(required = false) Driver driver) {
+			@RequestBody(required = false) Route route, @RequestBody(required = false) Driver driver) {
 		try {
 
 			if (vehical != null) {
