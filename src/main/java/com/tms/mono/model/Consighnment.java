@@ -2,6 +2,7 @@ package com.tms.mono.model;
 
 import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.tms.mono.enums.Status;
 
 import jakarta.annotation.Nonnull;
@@ -37,21 +38,22 @@ public class Consighnment {
 	@Nonnull
 	@OneToOne(mappedBy = "consighnment", cascade = CascadeType.ALL)
 	@JoinColumn(name = "consighnment_owner")
+	@JsonManagedReference
 	private ConsighnmentOwner consighnmentOwner; // One consignment has one owner
 	@Nonnull
 	@Column(name = "type")
 	private String type;
-	
+
 	@Nonnull
 	@Column(name = "startingPlace")
 	@NotBlank
 	private String startingPlace;
-	
+
 	@Nonnull
 	@Column(name = "destination")
 	@NotBlank
 	private String destination;
-	
+
 	@Nonnull
 	@Column(name = "load_weight")
 	@NotBlank
@@ -59,15 +61,16 @@ public class Consighnment {
 	@Nonnull
 	@Column(name = "fare")
 	private Double fare;
-	
+
 	@Enumerated(EnumType.STRING)
-	@Column(name ="status")
+	@Column(name = "status")
 	private Status status;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "route")
 	private Route route;
 
 	@OneToOne
+	@JsonManagedReference
 	private AssignedConsighnmentsDetails consighnmentsDetails;
 }

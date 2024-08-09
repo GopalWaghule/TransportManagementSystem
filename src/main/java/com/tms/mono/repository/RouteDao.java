@@ -11,5 +11,6 @@ import com.tms.mono.model.Route;
 public interface RouteDao extends JpaRepository<Route, Serializable>{
 	
 	Route findByRouteName(String name);
+	Route findByStartLocationAndDestination(String strarting,String destination);
 
 }

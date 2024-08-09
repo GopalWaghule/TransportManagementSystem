@@ -9,5 +9,7 @@ import com.tms.mono.model.Vehical;
 
 @Repository
 public interface VehicalDao extends JpaRepository<Vehical, Serializable> {
+	
+	Vehical findByNumber(String vehicalNumber);
 
 }

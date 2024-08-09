@@ -2,6 +2,7 @@
 package com.tms.mono.model;
 import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -30,6 +31,7 @@ public class ConsighnmentOwner {
     @OneToOne
     @JoinColumn(name = "consighnment")
     @JsonIgnore
+    @JsonBackReference
     private Consighnment consighnment;
     @NotBlank
     @Column(name = "name")

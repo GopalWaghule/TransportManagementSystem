@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.tms.mono.enums.Status;
 
 import jakarta.persistence.CascadeType;
@@ -18,9 +19,11 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "assigned_consighnments_details")
@@ -31,6 +34,7 @@ public class AssignedConsighnmentsDetails {
 	private Long id;
 	
 	@OneToOne(mappedBy ="consighnmentsDetails", cascade = CascadeType.ALL)
+	@JsonBackReference
 	private Consighnment consighnment;
 	
 	@OneToOne(mappedBy = "assighnment")

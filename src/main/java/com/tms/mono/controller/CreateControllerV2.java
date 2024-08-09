@@ -23,7 +23,7 @@ public class CreateControllerV2 {
 
 	private CreateService createService;
 
-	private CreateControllerV2(CreateService createService) {
+	public CreateControllerV2(CreateService createService) {
 		super();
 		this.createService = createService;
 	}
