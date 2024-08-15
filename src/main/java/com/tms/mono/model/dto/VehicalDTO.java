@@ -7,11 +7,16 @@ import com.tms.mono.model.Driver;
 import com.tms.mono.model.Route;
 import com.tms.mono.model.VehicalOwner;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class VehicalDTO {
 
 	private Long id;

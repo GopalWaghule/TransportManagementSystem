@@ -1,0 +1,60 @@
+2024-08-08 10:16:05.332 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:16:05.366 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:16:16.184 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 11.625 seconds (process running for 14.046)
+2024-08-08 10:16:51.608 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:16:51.610 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:16:54.855 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 3.314 seconds (process running for 52.717)
+2024-08-08 10:17:55.584 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:17:55.585 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:17:58.299 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 2.787 seconds (process running for 116.161)
+2024-08-08 10:20:11.531 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:20:11.533 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:20:14.061 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 2.64 seconds (process running for 251.924)
+2024-08-08 10:20:24.302 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:20:24.303 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:20:26.556 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 2.311 seconds (process running for 264.418)
+2024-08-08 10:20:32.093 [http-nio-8081-exec-2] INFO  com.tms.mono.controller.AssigningController - In AssigningController -> assignConsighnment 
+2024-08-08 10:20:32.107 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl -  In <AssighnmentServiceImpl> starting assighnConsighnment
+2024-08-08 10:20:32.108 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - In try block finding details in database
+2024-08-08 10:20:32.108 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Finding Consighnment , Vehical and related Routes for assighning consighnment....
+2024-08-08 10:20:32.512 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Creating new : 'AssignedConsighnmentsDetails' 
+2024-08-08 10:20:32.512 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting details........
+2024-08-08 10:20:32.513 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting route
+2024-08-08 10:20:32.513 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - route added
+2024-08-08 10:20:32.513 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting consighnment
+2024-08-08 10:20:32.513 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - consighnment added
+2024-08-08 10:20:32.514 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting Vehical
+2024-08-08 10:20:32.514 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Vehical added
+2024-08-08 10:22:11.854 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:22:11.855 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:22:13.916 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 2.111 seconds (process running for 371.778)
+2024-08-08 10:22:20.474 [http-nio-8081-exec-2] INFO  com.tms.mono.controller.AssigningController - In AssigningController -> assignConsighnment 
+2024-08-08 10:22:20.477 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl -  In <AssighnmentServiceImpl> starting assighnConsighnment
+2024-08-08 10:22:20.477 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - In try block finding details in database
+2024-08-08 10:22:20.477 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Finding Consighnment , Vehical and related Routes for assighning consighnment....
+2024-08-08 10:22:20.496 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Creating new : 'AssignedConsighnmentsDetails' 
+2024-08-08 10:22:20.497 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting details........
+2024-08-08 10:22:20.497 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting route
+2024-08-08 10:22:20.497 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - route added
+2024-08-08 10:22:20.498 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting consighnment
+2024-08-08 10:22:20.498 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - consighnment added
+2024-08-08 10:22:20.498 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting Vehical
+2024-08-08 10:22:20.498 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Vehical added
+2024-08-08 10:23:06.474 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:23:06.475 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:23:08.837 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 2.415 seconds (process running for 426.699)
+2024-08-08 10:23:12.811 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 10216 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-08 10:23:12.812 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-08 10:23:14.874 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 2.119 seconds (process running for 432.736)
+2024-08-08 10:23:20.178 [http-nio-8081-exec-2] INFO  com.tms.mono.controller.AssigningController - In AssigningController -> assignConsighnment 
+2024-08-08 10:23:20.180 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl -  In <AssighnmentServiceImpl> starting assighnConsighnment
+2024-08-08 10:23:20.181 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - In try block finding details in database
+2024-08-08 10:23:20.181 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Finding Consighnment , Vehical and related Routes for assighning consighnment....
+2024-08-08 10:23:20.204 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Creating new : 'AssignedConsighnmentsDetails' 
+2024-08-08 10:23:20.205 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting details........
+2024-08-08 10:23:20.205 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting route
+2024-08-08 10:23:20.206 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - route added
+2024-08-08 10:23:20.206 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting consighnment
+2024-08-08 10:23:20.206 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - consighnment added
+2024-08-08 10:23:20.206 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Setting Vehical
+2024-08-08 10:23:20.207 [http-nio-8081-exec-2] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Vehical added

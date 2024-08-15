@@ -2,6 +2,10 @@ package com.tms.mono.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,6 +28,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@JsonInclude(Include.NON_NULL)
 public class Vehical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,5 +58,6 @@ public class Vehical {
     
     @OneToOne
     @JoinColumn(name = "assighnment")
+    @JsonIgnore
     private AssignedConsighnmentsDetails assighnment;
 }

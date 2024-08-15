@@ -2,7 +2,7 @@ package com.tms.mono.model;
 
 import java.time.LocalDate;
 
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.tms.mono.enums.Status;
@@ -50,8 +50,8 @@ public class AssignedConsighnmentsDetails {
 	@Column(name = "status")
 	private Status status;
 	
-	@CreatedDate
-	@Column(name = "start_date")
+	@CreationTimestamp
+    @Column(name = "start_date", updatable = false)
 	private LocalDate startDate; 
 	
 }
