@@ -23,12 +23,11 @@ public class AssigningController {
 
 	private AssighnmentService assighnmentService;
 	
-	private ModelMapper modelMapper;
 
 	private AssigningController(AssighnmentService assighnmentService, ModelMapper modelMapper) {
 		super();
 		this.assighnmentService = assighnmentService;
-		this.modelMapper = modelMapper;
+		
 	}
 
 	@PutMapping("/vehical")

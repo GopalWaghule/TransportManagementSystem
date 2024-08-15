@@ -63,7 +63,7 @@ public class CreationControllerV1 {
 	}
 
 	@PostMapping("/vo")
-	private ResponseEntity<VehicalOwner> addVehicalOwner(@RequestBody VehicalOwner vehicalOwner) {
+	public ResponseEntity<VehicalOwner> addVehicalOwner(@RequestBody VehicalOwner vehicalOwner) {
 		try {
 			LOGGER.info("In <CreationControllerV1>");
 			createService.addVehicalOwner(vehicalOwner);
@@ -76,7 +76,7 @@ public class CreationControllerV1 {
 	}
 
 	@PostMapping("/d")
-	private ResponseEntity<Driver> addDriver(@RequestBody Driver driver) {
+	public ResponseEntity<Driver> addDriver(@RequestBody Driver driver) {
 		try {
 			LOGGER.info("In <CreationControllerV1>");
 			createService.addDriver(driver);
@@ -89,7 +89,7 @@ public class CreationControllerV1 {
 	}
 
 	@PostMapping("/r")
-	private ResponseEntity<Route> addRoute(@RequestBody Route route) {
+	public ResponseEntity<Route> addRoute(@RequestBody Route route) {
 		try {
 			LOGGER.info("In <CreationControllerV1>");
 			createService.addRoute(route);
@@ -102,7 +102,7 @@ public class CreationControllerV1 {
 	}
 
 	@PostMapping("/co")
-	private ResponseEntity<ConsighnmentOwner> addConsighnmentOwner(@RequestBody ConsighnmentOwner consighnmentOwner) {
+	public ResponseEntity<ConsighnmentOwner> addConsighnmentOwner(@RequestBody ConsighnmentOwner consighnmentOwner) {
 
 		try {
 			LOGGER.info("In <CreationControllerV1>");
