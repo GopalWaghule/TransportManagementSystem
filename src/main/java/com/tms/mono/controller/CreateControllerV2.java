@@ -29,7 +29,7 @@ public class CreateControllerV2 {
 	}
 
 	@PostMapping
-	private ResponseEntity<?> add(@RequestBody(required = false) Vehical vehical,
+	public ResponseEntity<?> add(@RequestBody(required = false) Vehical vehical,
 			@RequestBody(required = false) VehicalOwner vehicalOwner,
 			@RequestBody(required = false) Consighnment consighnment,
 			@RequestBody(required = false) ConsighnmentOwner consighnmentOwner,

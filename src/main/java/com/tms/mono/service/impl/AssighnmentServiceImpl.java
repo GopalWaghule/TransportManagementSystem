@@ -2,6 +2,7 @@ package com.tms.mono.service.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.tms.mono.enums.Status;
@@ -110,9 +111,17 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 	public void assighnConsighnment(Long consigId, Long vehicalId) {
 		LOGGER.info("In <AssignmentServiceImpl> starting assignConsignment");
 
+		// created for async function
+
+		/*
+		 * try { System.out.println("sleep"); Thread.sleep(11000); } catch
+		 * (InterruptedException e) { e.printStackTrace(); }
+		 * System.out.println("start");
+		 */
+
 		Consighnment consignment = consighnmentDao.findById(consigId)
 				.orElseThrow(() -> new EntityNotFoundException("Consignment not found"));
-		if (consignment.getConsighnmentsDetails() != null) {
+		if (consignment.getConsighnmentsDetails() == null) {
 			try {
 				LOGGER.info("Finding Consignment, Vehicle, and related Routes for assigning consignment...");
 
@@ -127,12 +136,10 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 
 				consignment.setConsighnmentsDetails(assignedConsignmentsDetails);
 
-				
-					LOGGER.info("Saving consignment: {}", consignment);
-					consighnmentDao.save(consignment);
-					LOGGER.info("Saving assigned consignment details: {}", assignedConsignmentsDetails);
-					assighnedConsighnmentDetailsDao.save(assignedConsignmentsDetails);
-				
+				LOGGER.info("Saving consignment: {}", consignment);
+				consighnmentDao.save(consignment);
+				LOGGER.info("Saving assigned consignment details: {}", assignedConsignmentsDetails);
+				assighnedConsighnmentDetailsDao.save(assignedConsignmentsDetails);
 
 			} catch (EntityNotFoundException e) {
 				LOGGER.error("Entity not found: {}", e.getMessage());
