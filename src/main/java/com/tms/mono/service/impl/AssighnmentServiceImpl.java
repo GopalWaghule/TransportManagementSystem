@@ -2,9 +2,9 @@ package com.tms.mono.service.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import com.tms.mono.LogMessages;
 import com.tms.mono.enums.Status;
 import com.tms.mono.model.AssignedConsighnmentsDetails;
 import com.tms.mono.model.Consighnment;
@@ -155,39 +155,43 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 		LOGGER.info("Service Layer exit");
 	}
 
-	private AssignedConsighnmentsDetails createAssignedConsignmentsDetails(Consighnment consignment, Vehical vehicle,
+	public AssignedConsighnmentsDetails createAssignedConsignmentsDetails(Consighnment consignment, Vehical vehicle,
 			Route routeName) {
 		AssignedConsighnmentsDetails assignedConsignmentsDetails = new AssignedConsighnmentsDetails();
 
-		try {
-			LOGGER.info("Setting route");
-			consignment.setRoute(routeName);
-			LOGGER.info("Route added");
-		} catch (Exception e) {
-			LOGGER.error("Exception setting Route: {}", e.getMessage());
+		if (checkNonActiveConsignment(consignment) == true) {
+			try {
+				LOGGER.info("Setting route.....");
+				consignment.setRoute(routeName);
+				LOGGER.info("Route added.......");
+			} catch (Exception e) {
+				LOGGER.error("Exception setting Route: {}", e.getMessage());
+			}
+
+			try {
+				LOGGER.info("Setting consignment");
+				assignedConsignmentsDetails.setConsighnment(consignment);
+				LOGGER.info("Consignment added....");
+			} catch (Exception e) {
+				LOGGER.error("Exception setting consignment: {}", e.getMessage());
+			}
+
+			try {
+				LOGGER.info("Setting vehicle...");
+				assignedConsignmentsDetails.setVehical(vehicle);
+				LOGGER.info("Vehicle added....");
+			} catch (Exception e) {
+				LOGGER.error("Exception setting vehicle: {}", e.getMessage());
+			}
+
+			assignedConsignmentsDetails.setRemainingFair(consignment.getFare());
+			assignedConsignmentsDetails.setTotalFair(consignment.getFare());
+			assignedConsignmentsDetails.setStatus(Status.ACTIVE);
+
+			return assignedConsignmentsDetails;
 		}
 
-		try {
-			LOGGER.info("Setting consignment");
-			assignedConsignmentsDetails.setConsighnment(consignment);
-			LOGGER.info("Consignment added");
-		} catch (Exception e) {
-			LOGGER.error("Exception setting consignment: {}", e.getMessage());
-		}
-
-		try {
-			LOGGER.info("Setting vehicle");
-			assignedConsignmentsDetails.setVehical(vehicle);
-			LOGGER.info("Vehicle added");
-		} catch (Exception e) {
-			LOGGER.error("Exception setting vehicle: {}", e.getMessage());
-		}
-
-		assignedConsignmentsDetails.setRemainingFair(consignment.getFare());
-		assignedConsignmentsDetails.setTotalFair(consignment.getFare());
-		assignedConsignmentsDetails.setStatus(Status.ACTIVE);
-
-		return assignedConsignmentsDetails;
+		return null;
 	}
 
 	@Override
@@ -208,7 +212,7 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 			VehicalOwner vehicalOwner = vehicalOwnerDao.findById(voId).get();
 
 			if (vehicalOwner == null) {
-				LOGGER.info("VehicalOwner not found for ID: " + voId);
+				LOGGER.info("Vehical " + LogMessages.OWNER_NOT_FOUND + voId);
 				return;
 			}
 
@@ -220,6 +224,23 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 			LOGGER.error("Error assigning VehicalOwner: " + e.getMessage().toString());
 
 		}
+	}
+
+	@Override
+	public Boolean checkNonActiveConsignment(Consighnment consighnment) {
+		Boolean flag = false;
+		try {
+			if (consighnment.getStatus() == Status.Non_Active) {
+				LOGGER.info(LogMessages.GETTING_STATUS_CONSIGHNMENT);
+				flag = true;
+			} else {
+				LOGGER.info(LogMessages.ALREADY_ASSIGNED_CONSIGHNMENT);
+			}
+
+		} catch (Exception e) {
+			LOGGER.error("EXception in Getting status of consighnment....:{}", e.getMessage());
+		}
+		return flag;
 	}
 
 }
