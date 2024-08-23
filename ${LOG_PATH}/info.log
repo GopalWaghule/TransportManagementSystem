@@ -9,3 +9,26 @@
 2024-08-23 17:23:16.062 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 9560 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
 2024-08-23 17:23:16.063 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
 2024-08-23 17:23:17.709 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 1.689 seconds (process running for 157.193)
+2024-08-23 17:47:22.836 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 5268 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-23 17:47:22.847 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-23 17:47:29.430 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 7.013 seconds (process running for 11.981)
+2024-08-23 17:47:37.036 [http-nio-8081-exec-1] INFO  com.tms.mono.controller.AssigningController - In AssigningController -> assignVehicalToConsighnment 
+2024-08-23 17:47:37.043 [http-nio-8081-exec-1] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Assighning Vehical Owner to vehical
+2024-08-23 17:47:37.044 [http-nio-8081-exec-1] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Getting Vehical By its vehicalNumber
+2024-08-23 17:47:37.242 [http-nio-8081-exec-1] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl -  Vehical found : 
+2024-08-23 17:47:37.242 [http-nio-8081-exec-1] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Owner Already Assigned .........
+2024-08-23 17:47:37.242 [http-nio-8081-exec-1] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Updating Owner Details .........
+2024-08-23 17:47:37.242 [http-nio-8081-exec-1] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - Getting VehicalOwner by its id
+2024-08-23 17:47:37.251 [http-nio-8081-exec-1] INFO  com.tms.mono.service.impl.AssighnmentServiceImpl - VehicalOwner assigned to the vehicle: 
+2024-08-23 17:50:16.198 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 5268 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-23 17:50:16.199 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-23 17:50:17.939 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 1.787 seconds (process running for 180.49)
+2024-08-23 17:51:27.694 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 5268 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-23 17:51:27.695 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-23 17:51:29.589 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 1.934 seconds (process running for 252.139)
+2024-08-23 17:51:31.232 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 5268 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-23 17:51:31.233 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-23 17:51:32.845 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 1.654 seconds (process running for 255.395)
+2024-08-23 17:53:00.740 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Starting TransportManagementSystemApplication using Java 17.0.7 with PID 5268 (C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem\target\classes started by Hp in C:\Users\Hp\Desktop\WorkSpace\Micro-services\TransportManagementSystem)
+2024-08-23 17:53:00.740 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-23 17:53:02.311 [restartedMain] INFO  com.tms.mono.TransportManagementSystemApplication - Started TransportManagementSystemApplication in 1.608 seconds (process running for 344.862)

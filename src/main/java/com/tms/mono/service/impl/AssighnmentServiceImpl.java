@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.tms.mono.LogMessages;
 import com.tms.mono.enums.Status;
+import com.tms.mono.exception.VehicleNotFoundException;
 import com.tms.mono.model.AssignedConsighnmentsDetails;
 import com.tms.mono.model.Consighnment;
 import com.tms.mono.model.Route;
@@ -111,14 +112,6 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 	public void assighnConsighnment(Long consigId, Long vehicalId) {
 		LOGGER.info("In <AssignmentServiceImpl> starting assignConsignment");
 
-		// created for async function
-
-		/*
-		 * try { System.out.println("sleep"); Thread.sleep(11000); } catch
-		 * (InterruptedException e) { e.printStackTrace(); }
-		 * System.out.println("start");
-		 */
-
 		Consighnment consignment = consighnmentDao.findById(consigId)
 				.orElseThrow(() -> new EntityNotFoundException("Consignment not found"));
 		if (consignment.getConsighnmentsDetails() == null) {
@@ -199,27 +192,16 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 	public void assighnVehicalOwnerToVehical(String vehicalNumber, Long voId) {
 
 		try {
-			LOGGER.info("Assighning Vehical Owner to vehical");
-			LOGGER.info("Getting Vehical By its vehicalNumber");
-			Vehical byId = vehicalDao.findByNumber(vehicalNumber);
-			LOGGER.info(" Vehical found : ");
-
-			if (byId == null) {
-				LOGGER.info("Vehicle not found for number: {}", vehicalNumber);
-			}
+			LOGGER.info(LogMessages.ASSIGNING_VEHICLE_OWNER);
+			LOGGER.info(LogMessages.GETTING_VEHICLE_BY_NUMBER);
+			Vehical byId = findVehicalByNumber(vehicalNumber);
 
 			if (byId.getOwner().getName() != null) {
 				LOGGER.info("Owner Already Assigned .........");
 				LOGGER.info("Updating Owner Details .........");
 			}
 
-			LOGGER.info("Getting VehicalOwner by its id");
-			VehicalOwner vehicalOwner = vehicalOwnerDao.findById(voId).get();
-
-			if (vehicalOwner == null) {
-				LOGGER.info("Vehical {}", LogMessages.OWNER_NOT_FOUND, voId);
-			}
-
+			VehicalOwner vehicalOwner = getVehicalOwnerById(voId);
 			byId.setOwner(vehicalOwner);
 			LOGGER.info("VehicalOwner assigned to the vehicle: ");
 			vehicalDao.save(byId);
@@ -247,4 +229,32 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 		return flag;
 	}
 
+	@Override
+	public Vehical findVehicalByNumber(String number) {
+		if (number != null) {
+			try {
+				LOGGER.info("Finding Vehical..");
+				Vehical v = vehicalDao.findByNumber(number);
+				LOGGER.info("Vehical Found :.. {}", v);
+				if (v == null) {
+					throw new VehicleNotFoundException("Vehicle not found for given number: " + number);
+				}
+				return v;
+			} catch (Exception e) {
+				LOGGER.error("Exception occured in findVehicalByNumber method");
+			}
+		}
+		return null;
+	}
+
+	public VehicalOwner getVehicalOwnerById(Long voId) {
+		LOGGER.info(LogMessages.GETTING_VEHICLE_OWNER);
+		VehicalOwner vehicalOwner = vehicalOwnerDao.findById(voId).orElse(null);
+
+		if (vehicalOwner == null) {
+			LOGGER.info(LogMessages.OWNER_NOT_FOUND, voId);
+		}
+
+		return vehicalOwner;
+	}
 }
