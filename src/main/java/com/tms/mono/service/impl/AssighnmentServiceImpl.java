@@ -148,7 +148,6 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 				LOGGER.info("Transaction rolled back.");
 			}
 		} else {
-			LOGGER.error("Consighnment already assined !!!!!");
 			LOGGER.info("Consighnment already assined !!!!!");
 		}
 
@@ -157,9 +156,11 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 
 	public AssignedConsighnmentsDetails createAssignedConsignmentsDetails(Consighnment consignment, Vehical vehicle,
 			Route routeName) {
-		AssignedConsighnmentsDetails assignedConsignmentsDetails = new AssignedConsighnmentsDetails();
 
 		if (checkNonActiveConsignment(consignment) == true) {
+
+			AssignedConsighnmentsDetails assignedConsignmentsDetails = new AssignedConsighnmentsDetails();
+
 			try {
 				LOGGER.info("Setting route.....");
 				consignment.setRoute(routeName);
@@ -190,30 +191,33 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 
 			return assignedConsignmentsDetails;
 		}
-
 		return null;
 	}
 
 	@Override
 	@Transactional
 	public void assighnVehicalOwnerToVehical(String vehicalNumber, Long voId) {
+
 		try {
 			LOGGER.info("Assighning Vehical Owner to vehical");
 			LOGGER.info("Getting Vehical By its vehicalNumber");
 			Vehical byId = vehicalDao.findByNumber(vehicalNumber);
+			LOGGER.info(" Vehical found : ");
 
 			if (byId == null) {
-				LOGGER.info("Vehicle not found for number: " + vehicalNumber);
-				return;
+				LOGGER.info("Vehicle not found for number: {}", vehicalNumber);
 			}
 
-			LOGGER.info(" Vehical found : ");
+			if (byId.getOwner().getName() != null) {
+				LOGGER.info("Owner Already Assigned .........");
+				LOGGER.info("Updating Owner Details .........");
+			}
+
 			LOGGER.info("Getting VehicalOwner by its id");
 			VehicalOwner vehicalOwner = vehicalOwnerDao.findById(voId).get();
 
 			if (vehicalOwner == null) {
-				LOGGER.info("Vehical " + LogMessages.OWNER_NOT_FOUND + voId);
-				return;
+				LOGGER.info("Vehical {}", LogMessages.OWNER_NOT_FOUND, voId);
 			}
 
 			byId.setOwner(vehicalOwner);
@@ -221,7 +225,7 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 			vehicalDao.save(byId);
 
 		} catch (Exception e) {
-			LOGGER.error("Error assigning VehicalOwner: " + e.getMessage().toString());
+			LOGGER.error("Error assigning VehicalOwner:{} ", e.getMessage());
 
 		}
 	}
