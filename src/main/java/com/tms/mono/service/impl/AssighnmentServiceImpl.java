@@ -1,11 +1,14 @@
 package com.tms.mono.service.impl;
 
+import java.util.Optional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.tms.mono.LogMessages;
 import com.tms.mono.enums.Status;
+import com.tms.mono.exception.VehicalOwnerNotFoundException;
 import com.tms.mono.exception.VehicleNotFoundException;
 import com.tms.mono.model.AssignedConsighnmentsDetails;
 import com.tms.mono.model.Consighnment;
@@ -231,25 +234,26 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 
 	@Override
 	public Vehical findVehicalByNumber(String number) {
-		if (number != null) {
-			try {
-				LOGGER.info("Finding Vehical..");
-				Vehical v = vehicalDao.findByNumber(number);
-				LOGGER.info("Vehical Found :.. {}", v);
-				if (v == null) {
-					throw new VehicleNotFoundException("Vehicle not found for given number: " + number);
-				}
-				return v;
-			} catch (Exception e) {
-				LOGGER.error("Exception occured in findVehicalByNumber method");
-			}
-		}
-		return null;
+	    if (number != null) {
+	        try {
+	            LOGGER.info("Finding Vehical..");
+	            return Optional.ofNullable(vehicalDao.findByNumber(number))
+	                .orElseThrow(() -> new VehicleNotFoundException("Vehicle not found for given number: " + number));
+	        } catch (VehicleNotFoundException e) {
+	            LOGGER.error("Vehicle not found: {}", number);
+	            throw e; 
+	        } catch (Exception e) {
+	            LOGGER.error("Exception occurred in findVehicalByNumber method", e);
+	            throw e; 
+	        }
+	    }
+	    return null;
 	}
 
 	public VehicalOwner getVehicalOwnerById(Long voId) {
 		LOGGER.info(LogMessages.GETTING_VEHICLE_OWNER);
-		VehicalOwner vehicalOwner = vehicalOwnerDao.findById(voId).orElse(null);
+		VehicalOwner vehicalOwner = vehicalOwnerDao.findById(voId)
+				.orElseThrow(() -> new VehicalOwnerNotFoundException(voId));
 
 		if (vehicalOwner == null) {
 			LOGGER.info(LogMessages.OWNER_NOT_FOUND, voId);
@@ -257,4 +261,5 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 
 		return vehicalOwner;
 	}
+
 }

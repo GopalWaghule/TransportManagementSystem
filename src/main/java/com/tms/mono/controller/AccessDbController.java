@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.tms.mono.repository.AssighnedConsighnmentDetailsDao;
 import com.tms.mono.repository.ConsighnmentDao;
 import com.tms.mono.repository.RouteDao;
 import com.tms.mono.repository.VehicalDao;
+import com.tms.mono.service.AssighnmentService;
 
 @RestController
 @RequestMapping("/get")
@@ -37,15 +39,18 @@ public class AccessDbController {
 	private AssighnedConsighnmentDetailsDao acdDao;
 
 	private ModelMapper mapper;
+	
+	private AssighnmentService assighnmentService;
 
 	public AccessDbController(VehicalDao vehicalDao, RouteDao routeDao, ConsighnmentDao consighnmentDao,
-			AssighnedConsighnmentDetailsDao acdDao, ModelMapper mapper) {
+			AssighnedConsighnmentDetailsDao acdDao, ModelMapper mapper, AssighnmentService assighnmentService) {
 		super();
 		this.vehicalDao = vehicalDao;
 		this.routeDao = routeDao;
 		this.consighnmentDao = consighnmentDao;
 		this.acdDao = acdDao;
 		this.mapper = mapper;
+		this.assighnmentService=assighnmentService;
 	}
 
 	@GetMapping("/{s}")
@@ -88,6 +93,17 @@ public class AccessDbController {
 					+ "  v =Vehical , c= Consighnments , r= Route , acd= AssignedConsignmentDetails");
 		}
 
+	}
+	
+	@GetMapping("/vehical/{number}")
+	public ResponseEntity<Vehical> findVehicalByNumber(@PathVariable String number){
+		try {
+			Vehical byNumber =assighnmentService.findVehicalByNumber(number);
+			return new ResponseEntity<>(byNumber,HttpStatus.OK);
+		} catch (Exception e) {
+			LOGGER.error("Exception In Controller : {}",e.getMessage());
+		}
+		return ResponseEntity.notFound().build();
 	}
 
 }
