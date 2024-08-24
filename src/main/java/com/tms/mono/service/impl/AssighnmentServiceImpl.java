@@ -1,6 +1,13 @@
 package com.tms.mono.service.impl;
 
 import java.util.Optional;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,102 +59,67 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 		this.vehicalOwnerDao = vehicalOwnerDao;
 	}
 
-	/*
-	 * @Override
-	 * 
-	 * @Transactional public void assighnConsighnment(Long consigId, Long vehicalId)
-	 * {
-	 * 
-	 * LOGGER.info(" In <AssighnmentServiceImpl> starting assighnConsighnment"); try
-	 * { LOGGER.info("In try block finding details in database"); LOGGER.
-	 * info("Finding Consighnment , Vehical and related Routes for assighning consighnment...."
-	 * ); Consighnment consighnment = consighnmentDao.findById(consigId).get();
-	 * Vehical vehical = vehicalDao.findById(vehicalId).get();
-	 * 
-	 * 
-	 * Route routeName =
-	 * routeDao.findByStartLocationAndDestination(consighnment.getStartingPlace(),
-	 * consighnment.getDestination());
-	 * LOGGER.info("Creating new : 'AssignedConsighnmentsDetails' ");
-	 * AssignedConsighnmentsDetails assignedConsighnmentsDetails = new
-	 * AssignedConsighnmentsDetails(); LOGGER.info("Setting details........");
-	 * 
-	 * try { LOGGER.info("Setting route"); consighnment.setRoute(routeName);
-	 * LOGGER.info("route added");
-	 * 
-	 * } catch (Exception e) { LOGGER.info("Exception setting Route : " +
-	 * e.getMessage().toString()); } try { LOGGER.info("Setting consighnment");
-	 * assignedConsighnmentsDetails.setConsighnment(consighnment);
-	 * LOGGER.info("consighnment added"); } catch (Exception e) {
-	 * LOGGER.info("Exception Setting consighnment : " + e.getMessage().toString());
-	 * }
-	 * 
-	 * try { LOGGER.info("Setting Vehical");
-	 * assignedConsighnmentsDetails.setVehical(vehical);
-	 * LOGGER.info("Vehical added"); } catch (Exception e) {
-	 * LOGGER.info("Exception Setting Vehical : " + e.getMessage().toString()); }
-	 * 
-	 * assignedConsighnmentsDetails.setRemainingFair(consighnment.getFare());
-	 * assignedConsighnmentsDetails.setTotalFair(consighnment.getFare());
-	 * assignedConsighnmentsDetails.setStatus(Status.ACTIVE);
-	 * 
-	 * consighnment.setConsighnmentsDetails(assignedConsighnmentsDetails);
-	 * 
-	 * LOGGER.info("Saving : " + consighnment.toString());
-	 * consighnmentDao.save(consighnment); LOGGER.info("Saving : " +
-	 * assignedConsighnmentsDetails.toString());
-	 * assighnedConsighnmentDetailsDao.save(assignedConsighnmentsDetails);
-	 * 
-	 * } catch (Exception e) { LOGGER.error(
-	 * "Exception occurs during assighnment of consighnment in service:\n " +
-	 * e.getMessage().toString()); LOGGER.
-	 * info("Transaction RollBacked ................................................."
-	 * ); }
-	 * 
-	 * LOGGER.info("xxxxxxxxxxxxxxxxx  Service Layer exit xxxxxxxxxxxx");
-	 * 
-	 * }
-	 */
-
 	@Override
 	@Transactional
 	@Synchronized
 	public void assighnConsighnment(Long consigId, Long vehicalId) {
 		LOGGER.info("In <AssignmentServiceImpl> starting assignConsignment");
 
-		Consighnment consignment = consighnmentDao.findById(consigId)
-				.orElseThrow(() -> new EntityNotFoundException("Consignment not found"));
-		if (consignment.getConsighnmentsDetails() == null) {
-			try {
-				LOGGER.info("Finding Consignment, Vehicle, and related Routes for assigning consignment...");
+		// task executer which is ensuring task must be executed in given time
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		Callable<Void> task = () -> {
+			
+			//check executer
+			//Thread.sleep(12000);;
 
-				Vehical vehicle = vehicalDao.findById(vehicalId)
-						.orElseThrow(() -> new EntityNotFoundException("Vehicle not found"));
+			Consighnment consignment = consighnmentDao.findById(consigId)
+					.orElseThrow(() -> new EntityNotFoundException("Consignment not found"));
+			if (consignment.getConsighnmentsDetails() == null) {
+				try {
+					LOGGER.info("Finding Consignment, Vehicle, and related Routes for assigning consignment...");
 
-				Route routeName = routeDao.findByStartLocationAndDestination(consignment.getStartingPlace(),
-						consignment.getDestination());
+					Vehical vehicle = vehicalDao.findById(vehicalId)
+							.orElseThrow(() -> new EntityNotFoundException("Vehicle not found"));
 
-				AssignedConsighnmentsDetails assignedConsignmentsDetails = createAssignedConsignmentsDetails(
-						consignment, vehicle, routeName);
+					Route routeName = routeDao
+							.findByStartLocationAndDestination(consignment.getStartingPlace(),
+									consignment.getDestination())
+							.orElseThrow(() -> new EntityNotFoundException("Route not found"));
 
-				consignment.setConsighnmentsDetails(assignedConsignmentsDetails);
+					AssignedConsighnmentsDetails assignedConsignmentsDetails = createAssignedConsignmentsDetails(
+							consignment, vehicle, routeName);
 
-				LOGGER.info("Saving consignment: {}", consignment);
-				consighnmentDao.save(consignment);
-				LOGGER.info("Saving assigned consignment details: {}", assignedConsignmentsDetails);
-				assighnedConsighnmentDetailsDao.save(assignedConsignmentsDetails);
+					consignment.setConsighnmentsDetails(assignedConsignmentsDetails);
 
-			} catch (EntityNotFoundException e) {
-				LOGGER.error("Entity not found: {}", e.getMessage());
-			} catch (Exception e) {
-				LOGGER.error("Exception occurs during assignment of consignment in service: {}", e.getMessage());
-				LOGGER.info("Transaction rolled back.");
+					LOGGER.info("Saving consignment: {}", consignment);
+					consighnmentDao.save(consignment);
+					LOGGER.info("Saving assigned consignment details: {}", assignedConsignmentsDetails);
+					assighnedConsighnmentDetailsDao.save(assignedConsignmentsDetails);
+
+				} catch (EntityNotFoundException e) {
+					LOGGER.error("Entity not found: {}", e.getMessage());
+				} catch (Exception e) {
+					LOGGER.error("Exception occurs during assignment of consignment in service: {}", e.getMessage());
+					LOGGER.info("Transaction rolled back.");
+				}
+			} else {
+				LOGGER.info("Consighnment already assined !!!!!");
 			}
-		} else {
-			LOGGER.info("Consighnment already assined !!!!!");
-		}
+			LOGGER.info("Service Layer exit");
+			return null;
+		};
 
-		LOGGER.info("Service Layer exit");
+		Future<Void> future = executor.submit(task);
+		try {
+			future.get(10, TimeUnit.SECONDS);
+		} catch (TimeoutException e) {
+			LOGGER.error("Operation timed out after 10 seconds");
+			future.cancel(true);
+		} catch (InterruptedException | ExecutionException e) {
+			LOGGER.error("Exception occurred: {}", e.getMessage());
+		} finally {
+			executor.shutdown();
+		}
 	}
 
 	public AssignedConsighnmentsDetails createAssignedConsignmentsDetails(Consighnment consignment, Vehical vehicle,
@@ -234,20 +206,20 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 
 	@Override
 	public Vehical findVehicalByNumber(String number) {
-	    if (number != null) {
-	        try {
-	            LOGGER.info("Finding Vehical..");
-	            return Optional.ofNullable(vehicalDao.findByNumber(number))
-	                .orElseThrow(() -> new VehicleNotFoundException("Vehicle not found for given number: " + number));
-	        } catch (VehicleNotFoundException e) {
-	            LOGGER.error("Vehicle not found: {}", number);
-	            throw e; 
-	        } catch (Exception e) {
-	            LOGGER.error("Exception occurred in findVehicalByNumber method", e);
-	            throw e; 
-	        }
-	    }
-	    return null;
+		if (number != null) {
+			try {
+				LOGGER.info("Finding Vehical..");
+				return Optional.ofNullable(vehicalDao.findByNumber(number)).orElseThrow(
+						() -> new VehicleNotFoundException("Vehicle not found for given number: " + number));
+			} catch (VehicleNotFoundException e) {
+				LOGGER.error("Vehicle not found: {}", number);
+				throw e;
+			} catch (Exception e) {
+				LOGGER.error("Exception occurred in findVehicalByNumber method", e);
+				throw e;
+			}
+		}
+		return null;
 	}
 
 	public VehicalOwner getVehicalOwnerById(Long voId) {
@@ -258,7 +230,6 @@ public class AssighnmentServiceImpl implements AssighnmentService {
 		if (vehicalOwner == null) {
 			LOGGER.info(LogMessages.OWNER_NOT_FOUND, voId);
 		}
-
 		return vehicalOwner;
 	}
 

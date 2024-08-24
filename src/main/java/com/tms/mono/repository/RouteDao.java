@@ -1,6 +1,7 @@
 package com.tms.mono.repository;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,6 @@ import com.tms.mono.model.Route;
 public interface RouteDao extends JpaRepository<Route, Serializable>{
 	
 	Route findByRouteName(String name);
-	Route findByStartLocationAndDestination(String strarting,String destination);
+	Optional<Route> findByStartLocationAndDestination(String strarting,String destination);
 
 }
